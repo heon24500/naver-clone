@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAVER</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <style>
+        /* header */        
+        .header-nav {
+            display: flex;
+        }
+
+        .header-menu {
+            margin-right: auto;
+            margin-left: 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .header-mail-wrapper {
+            margin-left: auto;
+            margin-right: 15px;
+            margin-top: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #7bfdb3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .header-mail {
+            width: 60%;
+            height: 60%;
+        }
+
+        /* main */
+        .main-container {
+            position: absolute;
+            top: 780px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .image-logo {
+            width: 200px;
+        }
+
+        /* 검색창 부분 */
+        .search-container {
+            position: relative;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+
+        .search-input {
+            border-color: #04CF5C;
+            height: 50px;
+        }
+
+        /* 서비스 부분 */
+        .service-section {
+            margin-top: 20px;
+        }
+
+        .service-wrapper {
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 550px;
+            min-width: 450px;
+        }
+
+        .service-item {
+            margin-top: 20px;
+            width: 112px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .img-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            border-radius: 20px;
+            background-color: #f2f3f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-icon-wrapper > img {
+            width: 60%;
+            height: 60%;
+        }
+
+        .img-icon-more {
+            opacity: 0.5;
+        }
+
+        .service-text {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #676c6f;
+        }
+
+        .ad-div {
+            margin-top: 120px;
+            /* background: linear-gradient(to bottom, white, gray); */
+        }
+
+        .ad-div-a {
+            width: 800px;
+        }
+
+        .ad-div-a > img {
+            width: 400px;
+        }
+
+        .box {
+            width: 500px;
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #f7f8f9;
+        }
+
+        .ad-div-area {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ad-image {
+            width: 80%;
+            cursor: pointer;
+        }
+
+        .ad-close-btn {
+            position: absolute;
+            right: 0;
+            margin-right: 13%;
+            margin-top: -50px;
+            width: 12px;
+            cursor: pointer;
+        }
+
+        .weather-simple {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding-left: 10px;
+        }
+
+        .weather-detail {
+            height: 290px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .weather-simple-icon-wrapper {
+            flex: 1;
+            margin-left: 5px;
+        }
+
+        .weather-simple-info-wrapper {
+            flex: 5;
+            font-size: 14px;
+            color: #676c6f;
+        }
+
+        .weather-simple-ad-wrapper {
+            flex: 4;
+            display: flex;
+            align-items: center;
+        }
+
+        .weather-simple-ad-bar {
+            font-size: 30px;
+            font-weight: lighter;
+            color: #676c6f1a;
+        }
+
+        .weather-simple-ad-text {
+            margin-left: 5px;
+            font-size: 11px;
+            text-align: left;
+        }
+
+        .weather-simple-ad-text-em {
+            font-size: 14px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .weather-simple-ad-item-wrapper {
+            display: flex;
+        }
+
+        .weather-simple-ad-item {
+            width: 50px;
+            height: 50px;
+            background-color: #9af;
+            border-radius: 40px;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            margin-left: 5px;
+        }
+
+        .weather-simple-ad-image {
+            width: 90%;
+        }
+
+        .weather-simple-info {
+            display: flex;
+        }
+
+        .weather-simple-info > span {
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+
+        .weather-simple-info-mise {
+            color: rgb(0, 174, 255);
+        }
+
+        .weather-simple-info-chomise {
+            color: rgb(0, 174, 255);
+        }
+
+        .weather-simple-degree {
+            margin-left: 3px;
+            font-size: 16px;
+            color: black;
+        }
+
+        .weather-simple-icon {
+            width: 70%;
+        }
+
+        .weather-detail-title-wrapper {
+            display: flex;
+            margin-left: 10px;
+            margin-top: 5px;
+            align-items: center;
+        }
+
+        .weather-detail-title {
+            font-weight: bold;
+        }
+
+        .weather-detail-location {
+            margin-left: 5px;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #676c6f;
+            cursor: pointer;
+
+        }
+
+        .weather-detail-location-icon {
+            width: 20px;
+            margin-bottom: 5px;
+        }
+
+        .weather-detail-icon {
+            margin-right: 10px;
+            margin-left: auto;
+            width: 14px;
+            cursor: pointer;
+        }
+
+        .weather-detail-button-wrapper {
+            display: flex;
+            padding: 8px;
+        }
+
+        .weather-detail-button {
+            background-color: #e3e5f0;
+            border: 0px;
+            font-size: 12px;
+            margin-left: 5px;
+            color: #676c6f;
+            height: 40px;
+            padding: 8px;
+        }
+
+        .weather-detail-button-clicked {
+            background-color: #9af;
+            color: white;
+            font-weight: bold;
+        }
+
+        .weather-detail-info-wrapper {
+            cursor: pointer;
+        }
+
+        .weather-detail-info {
+            display: flex;
+            margin-top: 5px;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #676c6f;
+        }
+
+        .weather-detail-info-item {
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .weather-detail-info-divide {
+            color: #bbb;
+        }
+
+        .weather-detail-info-icon-wrapper {
+            margin-top: 6px;
+            margin-bottom: 6px;
+            width: 28px;
+        }
+
+        .weather-detail-info-icon {
+            width: 100%;
+        }
+
+        .weather-detail-info-today {
+            font-weight: bold;
+            color: white;
+            background-color: #888;
+            border-radius: 20px;
+            padding: 2px;
+        }
+
+        .weather-detail-humidity-wrapper {
+            display: flex;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 10px;
+            align-items: center;
+            background-color: #e3e5f0;
+            padding: 5px 5px;
+            font-size: 14px;
+            color: #676c6f;
+        }
+
+        .weather-detail-humidity {
+            margin-left: 4px;
+        }
+
+        .weather-detail-humidity-text {
+            margin-left: 4px;
+            font-size: 16px;
+            color: rgb(0, 174, 255);
+        }
+
+        .weather-detail-humidity-icon {
+            margin-left: 4px;
+            width: 16px;
+        }
+
+        .weather-detail-humidity-time {
+            margin-left: 10px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .app-wrapper {
+            display: flex;
+            padding: 20px;
+            font-size: 13px;
+            color: #676c6f;
+            align-items: center;
+        }
+
+        .app-image {
+            border-radius: 10px;
+            width: 40px;
+        }
+
+        .app-text {
+            display: flex;
+            margin-left: 10px;
+        }
+
+        .app-text-em {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        .app-button {
+            height: 35px;
+            margin-left: auto;
+            background-color: white;
+            border: 1px solid rgb(55, 102, 255);
+            color: rgb(55, 102, 255);
+            padding: 8px;
+        }
+
+        .footer-wrapper {
+            margin-top: 50px;
+            font-size: 13px;
+            color: #676c6f;
+        }
+
+        .footer-divide {
+            color: #676c6f3a;
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+
+        .footer-logout {
+            cursor: pointer;
+        }
+
+        .footer-service {
+            cursor: pointer;
+        }
+
+        .footer-pcversion {
+            cursor: pointer;
+        }
+
+        .footer-policy {
+            cursor: pointer;
+        }
+
+        .footer-privacy {
+            cursor: pointer;
+        }
+
+        .footer-support {
+            cursor: pointer;
+        }
+
+        .footer-logo {
+            margin-top: 20px;
+            margin-bottom: 80px;
+            width: 80px;
+            opacity: 0.3;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="header-nav">
+            <svg class="header-menu" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            <div class="header-mail-wrapper">
+                <svg class="header-mail" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-inbox-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M3.81 4.063A1.5 1.5 0 0 1 4.98 3.5h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1-.78.624l-3.7-4.624a.5.5 0 0 0-.39-.188H4.98a.5.5 0 0 0-.39.188L.89 9.312a.5.5 0 1 1-.78-.624l3.7-4.625z"/>
+                    <path fill-rule="evenodd" d="M.125 8.67A.5.5 0 0 1 .5 8.5h5A.5.5 0 0 1 6 9c0 .828.625 2 2 2s2-1.172 2-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .496.562l-.39 3.124a1.5 1.5 0 0 1-1.489 1.314H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393z"/>
+                </svg>
+            </div>
+        </nav>
+    </header>
+    <main class="main-container">
+        <a href="https://m.naver.com">
+            <img class="image-logo" src="images/logo.png" alt="logo">
+        </a>
+        <div class="search-container">
+            <input class="search-input form-control" type="text" placeholder="검색어를 입력해주세요." aria-label="deafult input example">
+        </div>
+        <section class="service-section">
+            <div class="service-wrapper">
+                <a href="https://m.naver.com/#NEWS" target="_blank" class="service-item">
+                    <div class="img-icon-wrapper"><img src="images/newspaper.png" alt="뉴스판"></div>
+                    <div class="service-text">뉴스판</div>
+                </a>
+                <a href="https://m.naver.com/#DATA" target="_blank" class="service-item">
+                    <div class="img-icon-wrapper"><img src="images/growth.png" alt="검색차트판"></div>
+                    <div class="service-text">검색차트판</div>
+                </a>
+                <a href="https://m.naver.com/#SPORTS" target="_blank" class="service-item">
+                    <div class="img-icon-wrapper"><img src="images/trophy.png" alt="스포츠판"></div>
+                    <div class="service-text">스포츠판</div>
+                </a>
+                <a href="https://m.naver.com/#SHOP_VOGUE" target="_blank" class="service-item">
+                    <div class="img-icon-wrapper"><img src="images/heart.png" alt="트렌드판"></div>
+                    <div class="service-text">트렌드판</div>
+                </a>
+                <a href="https://m.mail.naver.com/" target="_blank" class="service-item">
+                    <div class="img-icon-wrapper"><img src="images/letter.png" alt="메일"></div>
+                    <div class="service-text">메일</div>
+                </a>
+                <a href="https://m.cafe.naver.com/ca-fe/" target="_blank" class="service-item">
+                    <div class="img-icon-wrapper"><img src="images/cafe.png" alt="카페"></div>
+                    <div class="service-text">카페</div>
+                </a>
+                <a href="https://m.blog.naver.com/FeedList.nhn" target="_blank" class="service-item">
+                    <div class="img-icon-wrapper"><img src="images/article.png" alt="블로그"></div>
+                    <div class="service-text">블로그</div>
+                </a>
+                <a href="https://m.naver.com/services.html" target="_blank" class="service-item">
+                    <div class="img-icon-wrapper img-icon-more"><img src="images/more.png" alt="더보기"></div>
+                    <div class="service-text">더보기</div>
+                </a>
+            </div>
+        </section>
+        <div>
+            <div class="ad-div">
+                <a class="ad-div-a" href="https://siape.veta.naver.com/fxclick?eu=EU10041471&calp=-&oj=ya%2FU8Q7khEwC%2FwGesY8spbdDZVU6wEC5BazN69ObGo3AZJiIZoBgNZTv50DM7wvv%2BEU4BEYWBPVg40mLPchi3DuqpgIIMEUl8085vbmge2CxJh%2FGJnfJODXttrYFGtN%2B&ac=8126110&src=4502539&br=3211726&evtcd=P901&x_ti=1302&tb=SEARCH_1&oid=&sid1=&sid2=&rk=906d600aa452f8d0a390a43c0c576a03&eltts=tvTQsF4C6kxuxgxBgpCA2w%3D%3D&lu=&brs=Y&" target="_blank">
+                    <img src="images/ad.png" alt="광고 이미지">
+                </a>
+            </div>
+            <div class="box ad-div-area">
+                <img class="ad-image" src="images/ad2.png" alt="광고 이미지">
+                <img class="ad-close-btn" src="images/close.png" alt="창 닫기">
+            </div>
+            <div class="box weather-simple">
+                <div class="weather-simple-icon-wrapper">
+                    <img src="images/rain.png" alt="날씨 아이콘" class="weather-simple-icon">
+                </div>
+                <div class="weather-simple-info-wrapper">
+                    <div class="weather-simple-info">
+                        <span class="weather-simple-degree">27˚</span>
+                        <span class="weather-simple-degree">서울</span>
+                    </div>
+                    <div class="weather-simple-info">
+                        <div>
+                            <span>미세</span>
+                            <span class="weather-simple-info-mise">좋음</span>
+                        </div>
+                        <span>·</span>
+                        <div>
+                            <span>초미세</span>
+                            <span class="weather-simple-info-chomise">좋음</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-simple-ad-wrapper">
+                    <div class="weather-simple-ad-bar">|</div>
+                    <div class="weather-simple-ad-text">
+                        <div class="weather-simple-ad-text-em">NOW.</div>
+                        <div>뽀삐랑</div>
+                        <div>여름 홈캉스</div>
+                    </div>
+                    <div class="weather-simple-ad-item-wrapper">
+                        <div class="weather-simple-ad-item">
+                            <img class="weather-simple-ad-image" src="images/person.png" alt="사진">
+                        </div>
+                        <div class="weather-simple-ad-item">
+                            <img class="weather-simple-ad-image" src="images/person.png" alt="사진">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box weather-detail">
+                <div class="weather-detail-title-wrapper">
+                    <span class="weather-detail-title">날씨</span>
+                    <div class="weather-detail-location">
+                        <span class="weather-detail-location">서울시 역삼동</span>
+                        <img src="images/target.png" alt="위치 아이콘" class="weather-detail-location-icon">
+                    </div>
+                    <img src="images/up-arrow.png" alt="접기 아이콘" class="weather-detail-icon">
+                </div>
+                <div class="weather-detail-button-wrapper">
+                    <button class="weather-detail-button">시간대별 날씨</button>
+                    <button class="weather-detail-button">시간대별 미세먼지</button>
+                    <button class="weather-detail-button weather-detail-button-clicked">주간 날씨</button>
+                    <button class="weather-detail-button">주간 미세먼지</button>
+                </div>
+                <div class="weather-detail-info-wrapper">
+                    <div class="weather-detail-info">
+                        <div class="weather-detail-info-item">
+                            <div>
+                                <div>27˚</div>
+                                <div class="weather-detail-info-divide">|</div>
+                                <div>24˚</div>
+                            </div>
+                            <div class="weather-detail-info-icon-wrapper">
+                                <img class="weather-detail-info-icon" src="images/rain.png" alt="날씨 이미지">
+                            </div>
+                            <div>어제</div>
+                        </div>
+                        <div class="weather-detail-info-item">
+                            <div>
+                                <div>26˚</div>
+                                <div class="weather-detail-info-divide">|</div>
+                                <div>23˚</div>
+                            </div>
+                            <div class="weather-detail-info-icon-wrapper">
+                                <img class="weather-detail-info-icon" src="images/rain.png" alt="날씨 이미지">
+                            </div>
+                            <div class="weather-detail-info-today">오늘</div>
+                        </div>
+                        <div class="weather-detail-info-item">
+                            <div>
+                                <div>26˚</div>
+                                <div class="weather-detail-info-divide">|</div>
+                                <div>22˚</div>
+                            </div>
+                            <div class="weather-detail-info-icon-wrapper">
+                                <img class="weather-detail-info-icon" src="images/rain.png" alt="날씨 이미지">
+                            </div>
+                            <div>금</div>
+                        </div>
+                        <div class="weather-detail-info-item">
+                            <div>
+                                <div>27˚</div>
+                                <div class="weather-detail-info-divide">|</div>
+                                <div>24˚</div>
+                            </div>
+                            <div class="weather-detail-info-icon-wrapper">
+                                <img class="weather-detail-info-icon" src="images/sun.png" alt="날씨 이미지">
+                            </div>
+                            <div>토</div>
+                        </div>
+                        <div class="weather-detail-info-item">
+                            <div>
+                                <div>28˚</div>
+                                <div class="weather-detail-info-divide">|</div>
+                                <div>24˚</div>
+                            </div>
+                            <div class="weather-detail-info-icon-wrapper">
+                                <img class="weather-detail-info-icon" src="images/sun.png" alt="날씨 이미지">
+                            </div>
+                            <div>일</div>
+                        </div>
+                        <div class="weather-detail-info-item">
+                            <div>
+                                <div>29˚</div>
+                                <div class="weather-detail-info-divide">|</div>
+                                <div>25˚</div>
+                            </div>
+                            <div class="weather-detail-info-icon-wrapper">
+                                <img class="weather-detail-info-icon" src="images/sun.png" alt="날씨 이미지">
+                            </div>
+                            <div>월</div>
+                        </div>
+                        <div class="weather-detail-info-item">
+                            <div>
+                                <div>28˚</div>
+                                <div class="weather-detail-info-divide">|</div>
+                                <div>23˚</div>
+                            </div>
+                            <div class="weather-detail-info-icon-wrapper">
+                                <img class="weather-detail-info-icon" src="images/sun.png" alt="날씨 이미지">
+                            </div>
+                            <div>화</div>
+                        </div>
+                        <div class="weather-detail-info-item">
+                            <div>
+                                <div>26˚</div>
+                                <div class="weather-detail-info-divide">|</div>
+                                <div>22˚</div>
+                            </div>
+                            <div class="weather-detail-info-icon-wrapper">
+                                <img class="weather-detail-info-icon" src="images/rain.png" alt="날씨 이미지">
+                            </div>
+                            <div>수</div>
+                        </div>
+                        <div class="weather-detail-info-item">
+                            <div>
+                                <div>25˚</div>
+                                <div class="weather-detail-info-divide">|</div>
+                                <div>20˚</div>
+                            </div>
+                            <div class="weather-detail-info-icon-wrapper">
+                                <img class="weather-detail-info-icon" src="images/rain.png" alt="날씨 이미지">
+                            </div>
+                            <div>목</div>
+                        </div>
+                    </div>
+                    <div class="weather-detail-humidity-wrapper">
+                        <span class="weather-detail-humidity">습도</span>
+                        <span class="weather-detail-humidity">95%</span>
+                        <span class="weather-detail-humidity-text">높음</span>
+                        <img class="weather-detail-humidity-icon" src="images/water.png" alt="습도 아이콘">
+                        <span class="weather-detail-humidity-time">기상청 20:30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box app-wrapper">
+                <img class="app-image" src="images/symbol_img.png" alt="네이버 로고">
+                <div class="app-text">
+                    <div>앱으로</div>
+                    <div class="app-text-em">새로운 네이버</div>
+                    <div>를 더 쾌적하게 사용해보세요.</div>
+                </div>
+                <button class="app-button">앱 사용하기</button>
+            </div>
+        </div>
+
+        <div class="footer-wrapper">
+            <div>
+                <span class="footer-logout">로그아웃</span>
+                <span class="footer-divide">|</span>
+                <span class="footer-service">전체서비스</span>
+                <span class="footer-divide">|</span>
+                <span class="footer-pcversion">PC버전</span>
+            </div>
+            <div>
+                <span class="footer-policy">이용약관</span>
+                <span class="footer-divide">|</span>
+                <span class="footer-privacy">개인정보처리방침</span>
+                <span class="footer-divide">|</span>
+                <span class="footer-support">고객센터</span>
+            </div>
+            <div>
+                <img class="footer-logo" src="images/logo_black.png" alt="네이버 로고">
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+    <script>
+        const searchInput = document.querySelector(".search-input");
+        searchInput.addEventListener("keypress", function(e) {
+            if (e.key == "Enter") {
+                if (e.target.value) {
+                    window.open(`https://m.search.naver.com/search.naver?sm=mtp_hty.top&where=m&query=${e.target.value}`);
+                }
+            }
+        })
+
+        const headerMenu = document.querySelector(".header-menu");
+        headerMenu.addEventListener("click", function() {
+            window.open("https://m.naver.com/aside/");
+        })
+
+        const headerMailWrapper = document.querySelector(".header-mail-wrapper");
+        headerMailWrapper.addEventListener("click", function() {
+            window.open("https://m.notify.naver.com/");
+        })
+
+        const weatherSimple = document.querySelector(".weather-simple");
+        weatherSimple.addEventListener("click", function() {
+            window.open("https://n.weather.naver.com/today/09680101");
+        })
+
+        const weatherDetailLocation = document.querySelector(".weather-detail-location");
+        weatherDetailLocation.addEventListener("click", function() {
+            alert("위치 변경");
+        })
+
+        const weatherDetailInfoWrapper = document.querySelector(".weather-detail-info-wrapper");
+        weatherDetailInfoWrapper.addEventListener("click", function() {
+            window.open("https://n.weather.naver.com/today/09680101");
+        })
+
+        const adImage = document.querySelector(".ad-image");
+        adImage.addEventListener("click", function() {
+            window.open("https://blog.naver.com/naver_diary/221995124479");
+        })
+
+        const adCloseBtn = document.querySelector(".ad-close-btn");
+        adCloseBtn.addEventListener("click", function() {
+            alert("광고창 닫기");
+        })
+
+        const footerLogout = document.querySelector(".footer-logout");
+        footerLogout.addEventListener("click", function() {
+            alert("로그아웃이 완료 되었습니다.")
+        })
+
+        const footerService = document.querySelector(".footer-service");
+        footerService.addEventListener("click", function() {
+            window.open("https://m.naver.com/services.html");
+        })
+
+        const footerPcversion = document.querySelector(".footer-pcversion");
+        footerPcversion.addEventListener("click", function() {
+            window.open("https://www.naver.com/?mobile");
+        })
+
+        const footerPolicy = document.querySelector(".footer-policy");
+        footerPolicy.addEventListener("click", function() {
+            window.open("https://policy.naver.com/policy-mobile/term.html?type=1?type=1");
+        })
+
+        const footerPrivacy = document.querySelector(".footer-privacy");
+        footerPrivacy.addEventListener("click", function() {
+            window.open("https://policy.naver.com/policy-mobile/privacy.html");
+        })
+
+        const footerSupport = document.querySelector(".footer-support");
+        footerSupport.addEventListener("click", function() {
+            window.open("https://m.help.naver.com/support/index.help");
+        })
+
+        const footerLogo = document.querySelector(".footer-logo");
+        footerLogo.addEventListener("click", function() {
+            window.open("https://www.navercorp.com/");
+        })
+    </script>
+</body>
+</html>
